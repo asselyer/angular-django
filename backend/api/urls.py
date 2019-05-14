@@ -13,6 +13,6 @@ urlpatterns = [
     path('login/', views.login),
     path('logout/', views.logout),
 
-    #path('tasks/<int:pk>/', views.show_tasks),
+    path('', views.index),
 
 ]

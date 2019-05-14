@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import filters
 
 from api.models import Book
@@ -15,6 +15,7 @@ from api.serializers import BookSerializer1, BookSerializer
 
 class BookLists(generics.ListCreateAPIView):
     serializer_class = BookSerializer
+    # permission_classes = (AllowAny|ReadOnly,)    
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
@@ -25,6 +26,7 @@ class BookLists(generics.ListCreateAPIView):
         
 
 class BookListDetail(generics.RetrieveUpdateDestroyAPIView):
+    # permission_classes = (AllowAny,)
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 

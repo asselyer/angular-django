@@ -56,7 +56,7 @@ class BookSerializer1(serializers.ModelSerializer):
 
 
 
-class FeedbackSerializer(serializers.ModelSerializer):
+class FeedbackSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     topic = serializers.CharField()
     comment = serializers.CharField()
@@ -69,8 +69,13 @@ class FeedbackSerializer(serializers.ModelSerializer):
         fields = ('id', 'topic', 'comment', 'contact')
 
     def create(self, validated_data):
-        # tasks = validated_data.pop('tasks')
-        book_list = Feedback.objects.create(**validated_data)
-        # for task in tasks:
-        #     Task.objects.create(task_list=task_list, **task)
-        return book_list
+        # {'name': 'new category 3'}
+        # name='new category 3'
+        book_list = BookList(**validated_data)
+        book_list.save()
+        return task_list
+
+    def update(self, instance, validated_data):
+        instance.name = validated_data.get('name', instance.name)
+        instance.save()
+        return instance
