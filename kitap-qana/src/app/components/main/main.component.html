@@ -1,0 +1,43 @@
+
+  Create Task List:
+  <div>
+    <input type="text" [(ngModel)]="name" />
+    <input type="text" [(ngModel)]="author" />
+    <input type="text" [(ngModel)]="price" />
+    <input type="text" [(ngModel)]="genre" />
+    <input type="text" [(ngModel)]="rating" />
+
+    <button (click)="createBook()">Create</button>
+  </div>
+
+  Task List
+  <ng-container *ngIf="!loading">
+    Loading...
+  </ng-container>
+
+  <ng-container *ngIf="loading">
+    <div>
+      <div *ngFor="let l of booklists">
+      <span (click)="getBooks(l)">
+        <input type="text" [(ngModel)]="l.name" />
+        <input type="text" [(ngModel)]="l.author" />
+        <input type="text" [(ngModel)]="l.price" />
+        <input type="text" [(ngModel)]="l.genre" />
+        <input type="text" [(ngModel)]="l.rating" />
+
+      </span>
+      <hr>
+      <div>
+        {{l.id}} - {{l.name}} - {{l.author}} - {{l.price}} - {{l.owner.username}} - {{l.genre}} - {{l.rating}}
+</div>
+        <span style="color: red" (click)="deleteBookList(l)"> Удалить</span>
+        <span style="color: green" (click)="updateBookList(l)"> Изменить</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <br/>
+
+  <div>
+    <button (click)="logout()">Log out</button>
+  </div>

@@ -1,0 +1,30 @@
+<div class="container2">
+
+Books in sale are
+  <ng-container *ngIf="!loading">
+    Loading...
+  </ng-container>
+
+  <ng-container *ngIf="loading">
+
+  <br/>
+  <div class="card-group">
+        <div *ngFor="let l of booklists">
+    <div class="card" style="width: 18rem; height: 13rem">
+      <div class="card-body" >
+           <h5 class="card-title">   {{l.id}} - {{l.name}} </h5>
+<p class="card-text">   {{l.author}} - {{l.price}} - {{l.owner.username}} - {{l.genre}} - {{l.rating}}
+</p>
+      </div>
+        <div class="card-footer bg-transparent"><a href="#" class="btn btn-primary">Buy</a></div>
+    </div>
+
+  </div>
+</div>
+
+  </ng-container>
+
+
+  </div>
+
+<!-- <h1>{{message}}</h1> -->

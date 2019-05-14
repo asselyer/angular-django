@@ -1,0 +1,31 @@
+:host-context(body){
+    color:black;
+
+}
+.container2{
+    padding:20px;
+    margin: 0 auto;
+    background-color: rgba(255,255,255, 0.8);
+    box-shadow: 5px 5px 40px rgb(128, 125, 125);
+    width: 60em;
+    height: 870px;
+}
+#contact_form form{
+    display: table;
+
+}
+#contact_form label{
+    display: table-cell;
+}
+#contact_form input{
+    display: table-cell;
+}
+#contact-form h6{
+    display: table-row;
+    margin-block-start: 0%;
+
+}
+#content img{
+    width: 400px;
+    height: auto;
+}
